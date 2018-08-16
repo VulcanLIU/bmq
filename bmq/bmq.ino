@@ -6,7 +6,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>                           //显示屏的库56
 #include "Suanfa.h"                                     //算法的库.
-#include <JY901.h>
+
 #define   OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);                   //初始化显示屏
 Suanfa ad;                                            //创建一个对象
@@ -21,6 +21,7 @@ double X, Y, p1, p0;
 double data[3];
 double Ang[3];
 boolean flag = false;
+
 void setup()
 {
   Mrif1();
@@ -76,13 +77,6 @@ void yblink()
   else
     Y--;
 }
-void serialEvent()
-{
-  while (Serial.available())
-  {
-    JY901.CopeSerialData(Serial.read()); //Call JY901 data cope function
-  }
-}
 void Mrif1()
 {
   Mirf.spi = &MirfHardwareSpi;
@@ -93,22 +87,7 @@ void Mrif1()
   Mirf.channel = 3;
   Mirf.config();
 }
-void angle()
-{
-  Ang[0] = (float)JY901.stcAngle.Angle[0] / 32768 * 180;
-  Ang[1] = (float)JY901.stcAngle.Angle[1] / 32768 * 180;
-  Ang[2] = (float)JY901.stcAngle.Angle[2] / 32768 * 180;
-  if (!flag)
-  {
-    p0 = Ang[2];
-  }
-  if(p0!= 0)
-  {
-     flag = true;
-    }
-  p1 = Ang[2];
-  ad.tozero(p1, p0);
-}
+//
 void view(double x, double y, double p)
 {
   display.setTextSize(1);
