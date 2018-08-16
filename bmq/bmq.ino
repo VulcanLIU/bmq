@@ -9,7 +9,8 @@
 
 #define   OLED_RESET 4
 Adafruit_SSD1306 display(OLED_RESET);                   //初始化显示屏
-Suanfa ad;                                            //创建一个对象
+Suanfa ad;    //创建一个对象
+
 const int X_dir = 5;
 const int Y_dir = 6;
 double X_juli, Y_juli;
@@ -21,7 +22,7 @@ double X, Y, p1, p0;
 double data[3];
 double Ang[3];
 boolean flag = false;
-
+//
 void setup()
 {
   Mrif1();
@@ -87,7 +88,7 @@ void Mrif1()
   Mirf.channel = 3;
   Mirf.config();
 }
-//
+
 void view(double x, double y, double p)
 {
   display.setTextSize(1);
