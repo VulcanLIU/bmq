@@ -52,19 +52,19 @@ void loop() {
   p2 = (y1 - p1)/d;
   p2 = p2/PI*180;
 
-  x2 = x1 + (y1 - p1)/2;
+  x2 = x1 + (y1 - p1)/2*1.166;
   y2 = (y1+p1)/2;
 
   sf.realXY(x2,y2,p2);
   
   Serial.print("A:");  //串口显口
-  Serial.print(0);                 //串口显示
+  Serial.print(x1);                 //串口显示
   Serial.print("B:");  //串口显口
-  Serial.print(0);                 //串口显示
+  Serial.print((y1 - p1)/2);                 //串口显示
   Serial.print("X:");  //串口显口
-  Serial.print(sf.x);                 //串口显示
+  Serial.print(x2);                 //串口显示
   Serial.print("Y:");                   //串口显示
-  Serial.print(sf.y);                 //串口显示
+  Serial.print(y2);                 //串口显示
   Serial.print("P:");                   //串口显示
   Serial.println(p2);  //串口显口
   

@@ -29,12 +29,13 @@ void Suanfa::tozero(double p1,double p0)
 }
 void Suanfa::realXY(double x1,double y1,double p1)
 {
-	double dx = x1 - _x1;
-	double dy = y1 - _y1;
-	double dp = p1 - _p1;
+	dx = x1 - _x1;
+	dy = y1 - _y1;
+	dp = p1 - _p1;
+  
   dp = p1*PI/180;
-  double dx1 = dx*cos(dp)-dy*sin(dp);
-  double dy1 = dx*sin(dp)+dy*cos(dp);
+  dx1 = dx*cos(dp)+dy*sin(dp);
+  dy1 = dy*cos(dp)-dx*sin(dp);
 	x += dx1;
 	y += dy1;
 	
